@@ -56,6 +56,8 @@ FIND_PATH(StdPeriphLib_INCLUDE_DIR
     stm32f10x_wwdg.h
     stm32f10x_misc.h
     PATH_SUFFIXES include stm32
+    PATHS "/usr/local/include"
+    NO_CMAKE_FIND_ROOT_PATH
 )
 
 FOREACH(StdPeriphLib_LIB_NAME ${StdPeriphLib_FIND_LIBS})
@@ -63,6 +65,8 @@ FOREACH(StdPeriphLib_LIB_NAME ${StdPeriphLib_FIND_LIBS})
     FIND_LIBRARY(StdPeriphLib_LIBRARY
         NAMES ${StdPeriphLib_LIB_NAME}
         PATH_SUFFIXES lib
+	PATHS "/usr/local/lib"
+	NO_CMAKE_FIND_ROOT_PATH
     )
     SET(StdPeriphLib_LIBRARIES ${StdPeriphLib_LIBRARIES} ${StdPeriphLib_LIBRARY})
 ENDFOREACH()
