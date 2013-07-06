@@ -88,7 +88,7 @@ ENDFOREACH()
 
 FIND_FILE(CMSIS_LINKER_SCRIPT
     stm32_flash.ld.in
-	PATHS ${CMAKE_CURRENT_SOURCE_DIR}/../cmsis
+	PATHS "/usr/local/share/cmsis"
 	NO_CMAKE_FIND_ROOT_PATH
 )
 
@@ -98,7 +98,7 @@ IF(NOT STM32_CHIP_TYPE)
 ELSE()
     FIND_FILE(CMSIS_STARTUP_SOURCE
         ${CMSIS_STARTUP_NAME}
-		PATHS "/opt/STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7"
+		PATHS "/usr/local/share/cmsis"
 		NO_CMAKE_FIND_ROOT_PATH
     )
     SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D${STM32_CHIP_DEF}")
